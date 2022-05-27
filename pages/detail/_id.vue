@@ -25,13 +25,23 @@ export default {
     const product = response.data
     return { product }
   },
-  methods:{
+  head: {
+    title: 'Shopping Item Detail',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: '상품 상세 페이지입니다.',
+      },
+    ],
+  },
+  methods: {
     async addToCart() {
       await createCartItem(this.product)
       this.$store.commit('addCartItem', this.product)
       this.$router.push('/cart')
-    }
-  }
+    },
+  },
   //   created() {
   //     const id = this.$route.params.id
   //     fetchProductById()
